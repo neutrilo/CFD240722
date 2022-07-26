@@ -1,4 +1,4 @@
-function geom=calculap(geom)
+function geom=calculap2(geom)
   n=geom.n; dx=geom.dx;dy=geom.dy;
   fila=(1:n)'.*ones(n); columna=(1:n).*ones(n);
   nodosb=[fila(geom.borde.nodos),columna(geom.borde.nodos)]; %nodos en bordes
