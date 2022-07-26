@@ -12,7 +12,7 @@ function geom=velocidad(geom)
   nccv=geom.v.nodos;
   
   p=geom.p;
-   for i=1:size(nodosb)(1) %derivadas en bordes
+   for i=1:max(size(nodosb)) %derivadas en bordes
     f=nodosb(i,1);c=nodosb(i,2);
     
     if geom.borde.dx(f,c)==0
@@ -23,7 +23,7 @@ function geom=velocidad(geom)
     elseif geom.borde.dx(f,c)==-1
      u(f,c)=(p(f,c)-p(f,c-1))/dx;
      %u(f,c)=0;
-   endif
+    end
   
     if geom.borde.dy(f,c)==0
       v(f,c)=0.5*(p(f+1,c)-p(f-1,c))/dy;
@@ -33,16 +33,16 @@ function geom=velocidad(geom)
     elseif geom.borde.dy(f,c)==-1
       v(f,c)=(p(f,c)-p(f-1,c))/dy;
       %v(f,c)=0;
-    endif
-  endfor
-  for i=1:size(nodosc)(1) %derivadas en puntos centrales
+    end
+    end
+  for i=1:max(size(nodosc)) %derivadas en puntos centrales
     f=nodosc(i,1);c=nodosc(i,2);
     u(f,c)=0.5*(p(f,c+1)-p(f,c-1))/dx;
     v(f,c)=0.5*(p(f+1,c)-p(f-1,c))/dy;
-  endfor
+  end
   
   u=u+(u0-u).*nccu; geom.u.valores=u;
   v=v+(v0-v).*nccv; geom.v.valores=-v;
   
   
-endfunction
+   end

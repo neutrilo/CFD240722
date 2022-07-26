@@ -6,5 +6,5 @@ function m=difusa(m)
     m(2:end,:)=m(2:end,:)+m(1:end-1,:);
     m(:,1:end-1)=m(:,1:end-1)+m(:,2:end);
     m(:,2:end)=m(:,2:end)+m(:,1:end-1);
-  endif
-endfunction
+  end
+end

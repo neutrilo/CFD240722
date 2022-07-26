@@ -1,8 +1,9 @@
 function []=grafica(geom)
    hold off
-  it=niter=geom.niter;
+  it=geom.niter;
+  niter=it;
   err=geom.error;
-  figure 1
+
   
   subplot (2, 2, 1)
   mesh(geom.x,geom.y,-geom.p);    
@@ -32,4 +33,4 @@ function []=grafica(geom)
   title({'Auto en el tunel'})
   xlabel('Direccion X \rightarrow')
   ylabel('Direccion Y \rightarrow')
-endfunction
+end
